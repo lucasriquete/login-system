@@ -22,7 +22,7 @@
         $mail = new PHPMailer(true);
 
     try {
-        //Server settings
+        
         $mail->SMTPDebug = SMTP::DEBUG_SERVER;                     
         $mail->isSMTP();   
         $mail->CharSet = "UTF-8";                                        
@@ -55,7 +55,6 @@
     <button type="submit">Recuperar</button>
 </form>
 
-    <button type="submit">Voltar</button>
     <a href="./../../main.php">Voltar ao login</a>
 
 </body>

@@ -8,7 +8,7 @@
 </head>
 <body>
     <h2>Login</h2>
-<!-- Formulário de Login -->
+
 <form method="POST" action="main.php">
     <input type="text" name="username" placeholder="Usuário" required>
     <input type="password" name="password" placeholder="Senha" required>

@@ -28,13 +28,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $username = trim($_POST['username']);
     $rawPass  = $_POST['password'];
 
-    // Validação simples de senha
     if (strlen($rawPass) < 6) {
         echo "<p style='color:red;'>A senha deve ter pelo menos 6 caracteres!</p>";
         exit;
     }
 
-    // Verifica se o e-mail já existe
     $stmt = $pdo->prepare("SELECT id FROM users WHERE email = ?");
     $stmt->execute([$email]);
     if ($stmt->fetch()) {
@@ -42,7 +40,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         exit;
     }
 
-    // Verifica se o username já existe
     $stmt = $pdo->prepare("SELECT id FROM users WHERE username = ?");
     $stmt->execute([$username]);
     if ($stmt->fetch()) {
@@ -50,7 +47,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         exit;
     }
 
-    // Se passou em tudo, continua o cadastro
     $password = password_hash($rawPass, PASSWORD_DEFAULT);
     $stmt = $pdo->prepare("INSERT INTO users (name, email, phone, username, password) VALUES (?, ?, ?, ?, ?)");
 
