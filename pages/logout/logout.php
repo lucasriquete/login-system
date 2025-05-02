@@ -7,10 +7,10 @@
 </head>
 <body>
     <?php
-    require 'inc/functions.php';
-    redirectIfNotLoggedIn();
+        session_start();
+        session_destroy();
+        header("Location: ./../../main.php");
+        exit;
     ?>
-    <h1>Bem-vindo, <?= $_SESSION['user'] ?>!</h1>
-    <a href="logout.php">Sair</a>
 </body>
 </html>

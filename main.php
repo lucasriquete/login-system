@@ -9,12 +9,13 @@
 <body>
     <h2>Login</h2>
 <!-- Formulário de Login -->
-<form method="POST" action=".">
+<form method="POST" action="main.php">
     <input type="text" name="username" placeholder="Usuário" required>
     <input type="password" name="password" placeholder="Senha" required>
     <button type="submit">Entrar</button>
 </form>
-<p>Não tem conta? <a href="register.php">Cadastre-se</a></p>
+<p>Não tem conta? <a href="pages/cadastro/register.php">Cadastre-se</a></p>
+<p>Esqueceu a senha? <a href="pages/recuperarsenha/recuperarsenha.php">Recuperar senha</a></p>
     <?php
         require 'inc/config.php';
         require 'inc/functions.php';
@@ -30,7 +31,7 @@
             if ($user) {
                 if (password_verify($password, $user['password'])) {
                     $_SESSION['user'] = $user['name'];
-                    header("Location: dashboard.php");
+                    header("Location: pages/dashboard/dashboard.php");
                     exit;
                 } else {
                     echo "<p style='color:red;'>Senha incorreta!</p>";

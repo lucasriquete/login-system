@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="./../../css/style.css">
 </head>
 <body>
     <form method="POST">
@@ -17,9 +17,9 @@
         <button type="submit">Criar conta</button>
     </form>
     <br>
-    <a href="index.php">Voltar ao login</a>
+    <a href="./../../main.php">Voltar ao login</a>
     <?php
-require 'inc/config.php';
+require './../../inc/config.php';
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $name     = trim($_POST['name']);
@@ -56,7 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     try {
         $stmt->execute([$name, $email, $phone, $username, $password]);
-        header("Location: index.php");
+        header("Location: ./../../main.php");
         exit;
     } catch (PDOException $e) {
         echo "<p style='color:red;'>Erro ao cadastrar: " . $e->getMessage() . "</p>";
