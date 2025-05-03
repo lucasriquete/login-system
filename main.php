@@ -40,6 +40,6 @@
                 echo "<p style='color:red;'>Usuário não encontrado!</p>";
             }
         }
-        ?>
+    ?>
 </body>
 </html>

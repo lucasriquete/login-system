@@ -17,7 +17,7 @@
     require './../../modulos/PHPMailer/src/SMTP.php';
 
     if ($_SERVER["REQUEST_METHOD"] === "POST") {
-        $mail = $_POST["email"];  
+        $email = $_POST["email"];  
         
         $mail = new PHPMailer(true);
 
@@ -35,7 +35,7 @@
     
        
         $mail->setFrom('naoresponda@hotmail.com', "Login System");
-        $mail->addAddress($mail, "Login System");
+        $mail->addAddress($email, "Login System");
 
     
         $mail->isHTML(true);                                 
@@ -51,7 +51,7 @@
     ?>
 
 <form method="POST" action="recuperarsenha.php">
-    <input type="text" name="email" placeholder="email" required>
+    <input type="text" name="email" placeholder="Digite seu e-mail" required>
     <button type="submit">Recuperar</button>
 </form>
 
